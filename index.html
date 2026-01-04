@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Sanjay</title>
+</head>
+
+<body>
+  <link rel="stylesheet" href="profile.css">
+  <!-- head -->
+  <div class="head">
+    <div class="head__s1">
+      <h1>Portfolio.</h1>
+    </div>
+    <div class="head__s2">
+      <a href="">
+        <h2 style="color: green; cursor: pointer;">Home</h2>
+      </a>
+      <a href="about.html">
+        <h2>About Me</h2>
+      </a>
+      <a href="skill.html">
+        <h2>Skills</h2>
+      </a>
+      <a href="contact.html">
+        <h2>Contact</h2>
+      </a>
+      <img class="img" style="height: 25px; width: 25px;" src="menu (1).png" alt="">
+    </div>
+  </div>
+  <!-- body -->
+  <div class="body">
+    <div class="body__s1">
+      <img src="sanjayy.jpg" alt="">
+    </div>
+    <div class="body__s2">
+      <h1 style="padding: 10px;">Hey I'm <span>Sanjay</span></h1>
+      <h2 style="padding: 10px;">I'm a <span>Web Developer</span></h2>
+      <div>
+        <a style="padding: 10px;"
+          href="https://www.instagram.com/_sanjay_2205?igsh=MW5sYW52dG04OWU5ZA==&utm_source=ig_contact_invite">
+          <img src="image1.png"></a>
+        <a style="padding: 10px;"
+          href="https://www.linkedin.com/in/sanjay-marx-25aa27325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+          <img src="linkedin.png"></a>
+        <a style="padding: 10px;" href="https://github.com/sanjayaswin/Sanjay">
+          <img src="github.png"></a>
+      </div>
+    </div>
+  </div>
+  <!-- popup -->
+  <div class="popup">
+    <h2 class="x" style="text-align: right; color: red; cursor: pointer;">X</h2>
+    <h3 style="color: green; padding: 5px;">Home</h3>
+    <a href="about.html"><h3>About Me</h3></a>
+    <a href="skill.html"><h3>Skill</h3></a>
+    <a href="contact.html"><h3>Contact</h3></a>
+  </div>
+</body>
+
+</html>
+<script>
+  var popup =document.querySelector(".popup")
+  var img=document.querySelector(".img")
+  var x=document.querySelector(".x")
+  img.addEventListener("click",function(){
+    popup.style.display="inline-block"
+    img.style.transform="rotate(90deg)"
+    img.style.transition="1s"
+  })
+  x.addEventListener("click",function(){
+    popup.style.display="none"
+    img.style.transform="rotate(0deg)"
+    img.style.transition="1s"
+  })
+</script>

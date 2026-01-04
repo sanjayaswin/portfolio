@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills</title>
+  <link rel="stylesheet" href="skill.css">
+</head>
+
+<body>
+  <!-- head -->
+  <div class="head">
+    <div class="head__s1">
+      <h1>Portfolio.</h1>
+    </div>
+    <div class="head__s2">
+      <a href="index.html">
+        <h2>Home</h2>
+      </a>
+      <a href="about.html">
+        <h2>About Me</h2>
+      </a>
+      <a href="">
+        <h2 style="color: green; cursor: pointer;">Skills</h2>
+      </a>
+      <a href="contact.html">
+        <h2>Contact</h2>
+      </a>
+      <img class="img" style="height: 25px; width: 25px;" src="menu (1).png" alt="">
+    </div>
+  </div>
+  <!-- body -->
+  <div class="body">
+    <div class="body__s1">
+      <h2 style="color: #F4F754;">Technical Skills</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+    </div>
+    <div class="body__s2">
+      <h2 style="color: #F4F754;">Tools</h2>
+      <ul>
+        <li>VS Code</li>
+        <li>Figma</li>
+      </ul>
+    </div>
+    <div class="body__s3">
+      <h2 style="color: #F4F754;">Soft Skills</h2>
+      <ul>
+        <li>Problem Solving</li>
+        <li>Team Collaboration</li>
+        <li>Communication</li>
+        <li>Time Managament</li>
+        <li>Adaptability</li>
+      </ul>
+    </div>
+  </div>
+  <!-- Projects -->
+  <div class="project">
+    <h1 style="width: 100%;">Projects</h1>
+    <div class="project__1">
+      <a href="https://sanjayaswin.github.io/Reestar-project/"><img class="imgs" src="Reestar.png" alt=""></a>
+        <h3 style="text-decoration: none; text-align: center;background-color: transparent;">Reestar</h3>
+      </a>
+    </div>
+    <div class="project__2">
+      <a href="https://sanjayaswin.github.io/Udemy-clone/"><img class="imgs" src="udemy.png" alt=""></a>
+        <h3 style=" text-decoration: none;background-color: transparent; text-align: center;">Udemy Clone</h3>
+      </a>
+    </div>
+    <div class="project__3">
+      <a href="https://sanjayaswin.github.io/trip--advisor/"><img class="imgs" src="tripadvisor.png" alt=""></a>
+        <h3 style="text-decoration:dotted; text-align: center;background-color: transparent;">Trip Advisor</h3></a>
+    </div>
+    <div class="project__4">
+      <a href="https://sanjayaswin.github.io/Greenden-clone/"><img class="imgs" src="greenden.png" alt=""></a>
+        <h3 style="text-decoration: none; text-align: center;background-color: transparent;">Greenden</h3>
+      </a>
+    </div>
+    <div class="project__5">
+      <a href="https://sanjayaswin.github.io/Register-Form/"><img class="imgs" src="todo.png" alt=""></a>
+        <h3 style="text-decoration: none; text-align: center;background-color: transparent;">TO-DO List</h3>
+      
+    </div>
+    <div class="project__6">
+      <a href="https://sanjayaswin.github.io/Nostra-project/"><img class="imgs" src="nostra.png" alt=""></a>
+      <h3 style="text-decoration: none; text-align: center;background-color: transparent;">Nostra</h3>
+    </div>
+  </div>
+  <!-- popup -->
+  <div class="popup">
+    <h2 class="x" style="text-align: right; color: red; cursor: pointer;">X</h2>
+    <a href="index.html">
+      <h3>Home</h3>
+    </a>
+    <a href="about.html">
+      <h3>About Me</h3>
+    </a>
+    <h3 style="color: green; padding: 5px;">Skill</h3>
+    <a href="contact.html">
+      <h3>Contact</h3>
+    </a>
+  </div>
+</body>
+
+</html>
+<script>
+  var popup = document.querySelector(".popup")
+  var img = document.querySelector(".img")
+  var x = document.querySelector(".x")
+  img.addEventListener("click", function () {
+    popup.style.display = "inline-block"
+    img.style.transform = "rotate(90deg)"
+    img.style.transition = "1s"
+  })
+  x.addEventListener("click", function () {
+    popup.style.display = "none"
+    img.style.transform = "rotate(0deg)"
+    img.style.transition = "1s"
+  })
+</script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+  <!-- head -->
+  <div class="head">
+    <div class="head__s1">
+      <h1>Portfolio.</h1>
+    </div>
+    <div class="head__s2">
+      <a href="index.html">
+        <h2>Home</h2>
+      </a>
+      <a href=>
+        <h2 style="color: green; cursor: pointer;">About Me</h2>
+      </a>
+      <a href="skill.html">
+        <h2>Skills</h2>
+      </a>
+      <a href="contact.html">
+        <h2>Contact</h2>
+      </a>
+      <img class="img" style="height: 25px; width: 25px;" src="menu (1).png" alt="">
+    </div>
+  </div>
+  <!-- about me -->
+  <div class="aboutme">
+    <h2>About <span style="color: orange;">Me</span></h2>
+    <p>Hi, I’m Sanjay, a passionate web developer who enjoys creating clean, responsive, and user-friendly websites. I
+      work with technologies like HTML, CSS, JavaScript, and React, and I love turning ideas into real-world digital
+      solutions.</p>
+    <p>I started learning web development during my studies and have since worked on projects like e-commerce websites,
+      student portals, and simple web applications. I’m always curious to learn new tools and improve my design and
+      development skills.
+      My strengths include problem-solving, attention to detail, and a strong interest in UI design and usability. I
+      enjoy collaborating with others and building meaningful projects that make a difference.</p>
+    <p>I’m currently looking for opportunities to grow as a frontend developer, work on exciting projects, and continue
+      improving my craft.
+      When I’m not coding, I enjoy exploring new tech ideas and learning something new every day.</p>
+    <p>Feel free to connect with me.</p>
+  </div>
+  <!-- popup -->
+  <div class="popup">
+    <h2 class="x" style="text-align: right; color: red; cursor: pointer;">X</h2>
+    <a href="index.html">
+      <h3>Home</h3>
+    </a>
+    <h3 style="color: green; padding: 5px;">About Me</h3>
+    <a href="skill.html">
+      <h3>Skill</h3>
+    </a>
+    <a href="contact.html">
+      <h3>Contact</h3>
+    </a>
+  </div>
+</body>
+
+</html>
+<script>
+  var popup = document.querySelector(".popup")
+  var img = document.querySelector(".img")
+  var x = document.querySelector(".x")
+  img.addEventListener("click", function () {
+    popup.style.display = "inline-block"
+    img.style.transform = "rotate(90deg)"
+    img.style.transition = "1s"
+  })
+  x.addEventListener("click", function () {
+    popup.style.display = "none"
+    img.style.transform = "rotate(0deg)"
+    img.style.transition = "1s"
+  })
+</script>

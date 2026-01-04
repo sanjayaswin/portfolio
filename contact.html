@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+  
+  <!-- head -->
+  <div class="head">
+    <div class="head__s1">
+      <h1>Portfolio.</h1>
+    </div>
+    <div class="head__s2">
+      <a href="index.html">
+        <h2>Home</h2>
+      </a>
+      <a href="about.html">
+        <h2>About Me</h2>
+      </a>
+      <a href="skill.html">
+        <h2>Skills</h2>
+      </a>
+      <a href="">
+        <h2 style="color: green; cursor: pointer;">Contact</h2>
+      </a>
+      <img class="img" style="height: 25px; width: 25px;" src="menu (1).png" alt="">
+    </div>
+  </div>
+  <!--  -->
+<div class="connect">
+<h1 class="connect__one" style="color:rebeccapurple;">Connect With Me
+  <img class="connect__two" src="connect.png" alt="">
+</h1>
+  <form class="contact-form">
+    <input class="input1" type="text" placeholder="Name" required>
+    <input class="input2" type="tel" placeholder="Mobile Number" required>
+    <input class="input3" type="email" placeholder="Email" required>
+    <textarea class="input4" placeholder="Address" rows="3" required></textarea>
+    <button class="button" type="submit">Submit</button>
+  </form>
+</div>
+<!-- popup -->
+  <div class="popup">
+    <h2 class="x" style="text-align: right; color: red; cursor: pointer;">X</h2>
+    <a href="index.html">
+      <h3>Home</h3>
+    </a>
+    <a href="about.html">
+    <h3>About Me</h3></a>
+    <a href="skill.html">
+      <h3>Skill</h3>
+    </a>
+    <a href="contact.html">
+      <h3  style="color: green; padding: 5px;">Contact</h3>
+    </a>
+  </div>
+</body>
+
+</html>
+<script>
+  var popup = document.querySelector(".popup")
+  var img = document.querySelector(".img")
+  var x = document.querySelector(".x")
+  img.addEventListener("click", function () {
+    popup.style.display = "inline-block"
+    img.style.transform = "rotate(90deg)"
+    img.style.transition = "1s"
+  })
+  x.addEventListener("click", function () {
+    popup.style.display = "none"
+    img.style.transform = "rotate(0deg)"
+    img.style.transition = "1s"
+  })
+</script>
