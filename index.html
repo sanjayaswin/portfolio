@@ -1,78 +1,481 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | Sanjay</title>
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sanjay M — Computer Science Engineering student specializing in Full-Stack Development and AI/LLM Engineering. Explore my projects, skills, and experience." />
+  <meta name="keywords" content="Sanjay M, Full-Stack Developer, AI Engineer, LLM, Portfolio, React, JavaScript, Python" />
+  <meta name="author" content="Sanjay M" />
+  <title>Sanjay M — Full-Stack & AI/LLM Engineer</title>
 
+  <!-- Favicon (inline SVG-based base64) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a0a1a'/><text y='.9em' font-size='80' x='10'>S</text></svg>" />
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
 <body>
-  <link rel="stylesheet" href="profile.css">
-  <!-- head -->
-  <div class="head">
-    <div class="head__s1">
-      <h1>Portfolio.</h1>
+
+  <!-- =========================================
+       STICKY NAVIGATION BAR
+       ========================================= -->
+  <nav id="navbar" class="navbar" aria-label="Main navigation">
+    <div class="nav-container">
+      <!-- Logo / Brand -->
+      <a href="#home" class="nav-logo" aria-label="Sanjay M Home">
+        <span class="logo-bracket">&lt;</span>Sanjay<span class="logo-bracket">/&gt;</span>
+      </a>
+
+      <!-- Hamburger Menu (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Nav Links -->
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#home"           class="nav-link" data-section="home">Home</a></li>
+        <li><a href="#about"          class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills"         class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#experience"     class="nav-link" data-section="experience">Experience</a></li>
+        <li><a href="#projects"       class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#certifications" class="nav-link" data-section="certifications">Certs</a></li>
+        <li><a href="#connect"        class="nav-link" data-section="connect">Connect</a></li>
+      </ul>
     </div>
-    <div class="head__s2">
-      <a href="">
-        <h2 style="color: green; cursor: pointer;">Home</h2>
-      </a>
-      <a href="about.html">
-        <h2>About Me</h2>
-      </a>
-      <a href="skill.html">
-        <h2>Skills</h2>
-      </a>
-      <a href="contact.html">
-        <h2>Contact</h2>
-      </a>
-      <img class="img" style="height: 25px; width: 25px;" src="menu (1).png" alt="">
-    </div>
-  </div>
-  <!-- body -->
-  <div class="body">
-    <div class="body__s1">
-      <img src="sanjayy.jpg" alt="">
-    </div>
-    <div class="body__s2">
-      <h1 style="padding: 10px;">Hey I'm <span>Sanjay</span></h1>
-      <h2 style="padding: 10px;">I'm a <span>Web Developer</span></h2>
-      <div>
-        <a style="padding: 10px;"
-          href="https://www.instagram.com/_sanjay_2205?igsh=MW5sYW52dG04OWU5ZA==&utm_source=ig_contact_invite">
-          <img src="image1.png"></a>
-        <a style="padding: 10px;"
-          href="https://www.linkedin.com/in/sanjay-marx-25aa27325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
-          <img src="linkedin.png"></a>
-        <a style="padding: 10px;" href="https://github.com/sanjayaswin/Sanjay">
-          <img src="github.png"></a>
+  </nav>
+
+  <!-- =========================================
+       HERO / HOME SECTION
+       ========================================= -->
+  <section id="home" class="section hero-section">
+    <!-- Animated background particles canvas -->
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-content">
+      <!-- Profile Photo -->
+      <div class="hero-photo-wrapper reveal">
+        <div class="hero-photo-ring">
+          <img
+            src="Photo.png"
+            alt="Sanjay M profile photo"
+            class="hero-photo"
+            id="hero-photo"
+            onerror="this.onerror=null; this.src=''; this.parentElement.classList.add('photo-fallback');"
+          />
+          <!-- Fallback initials avatar shown if image fails -->
+          <div class="photo-initials" aria-hidden="true">SM</div>
+        </div>
+      </div>
+
+      <!-- Greeting & Name -->
+      <div class="hero-text reveal delay-1">
+        <p class="hero-greeting">Hey, I'm</p>
+        <h1 class="hero-name">Sanjay M</h1>
+
+        <!-- Typing effect container -->
+        <div class="hero-roles" aria-live="polite">
+          <span class="role-prefix">I'm a </span>
+          <span class="typed-text" id="typed-text"></span>
+          <span class="cursor" aria-hidden="true">|</span>
+        </div>
+
+        <!-- Tagline -->
+        <p class="hero-tagline">
+          Passionate CS engineer building intelligent, full-stack solutions — from
+          responsive web apps to AI-powered systems that make a real difference.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta">
+          <a href="Sanjay_Resume.pdf" download class="btn btn-primary" id="resume-btn" aria-label="Download Resume PDF">
+            <i class="fas fa-download" aria-hidden="true"></i> Download Resume
+          </a>
+          <div class="social-icons" role="list" aria-label="Social profiles">
+            <a href="https://github.com/sanjayaswin" target="_blank" rel="noopener noreferrer"
+               class="social-icon" role="listitem" aria-label="GitHub profile">
+              <i class="fab fa-github" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/sanjay-marx" target="_blank" rel="noopener noreferrer"
+               class="social-icon" role="listitem" aria-label="LinkedIn profile">
+              <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- popup -->
-  <div class="popup">
-    <h2 class="x" style="text-align: right; color: red; cursor: pointer;">X</h2>
-    <h3 style="color: green; padding: 5px;">Home</h3>
-    <a href="about.html"><h3>About Me</h3></a>
-    <a href="skill.html"><h3>Skill</h3></a>
-    <a href="contact.html"><h3>Contact</h3></a>
-  </div>
-</body>
 
+    <!-- Scroll down indicator -->
+    <a href="#about" class="scroll-down" aria-label="Scroll to About section">
+      <i class="fas fa-chevron-down" aria-hidden="true"></i>
+    </a>
+  </section>
+
+  <!-- =========================================
+       ABOUT ME SECTION
+       ========================================= -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2 class="section-title reveal">About <span class="accent">Me</span></h2>
+      <div class="about-grid">
+        <!-- About text -->
+        <div class="about-text reveal delay-1">
+          <p>
+            I'm a <strong>Computer Science Engineering student</strong> with a deep passion for
+            building end-to-end products — from pixel-perfect frontends to intelligent AI backends.
+            I thrive on solving complex problems and constantly push to learn new technologies that
+            keep me at the cutting edge.
+          </p>
+          <p>
+            Whether it's architecting a <strong>full-stack web application</strong> or designing
+            <strong>AI agents</strong> with LangChain and CrewAI, I bring curiosity, precision,
+            and a drive for impact to everything I build. I'm eager to contribute to teams tackling
+            meaningful challenges in tech.
+          </p>
+        </div>
+
+        <!-- Education cards -->
+        <div class="about-education reveal delay-2">
+          <h3 class="subsection-title"><i class="fas fa-graduation-cap accent" aria-hidden="true"></i> Education</h3>
+
+          <div class="edu-card">
+            <div class="edu-icon"><i class="fas fa-university" aria-hidden="true"></i></div>
+            <div class="edu-info">
+              <h4>Bachelor of Engineering — Computer Science</h4>
+              <p class="edu-place">Kongunadu College of Engineering and Technology</p>
+              <span class="edu-meta">2023 – 2027 &nbsp;|&nbsp; CGPA: <strong>7.35</strong></span>
+            </div>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-icon"><i class="fas fa-school" aria-hidden="true"></i></div>
+            <div class="edu-info">
+              <h4>Higher Secondary Certificate (HSC)</h4>
+              <p class="edu-place">Tamil Nadu State Board</p>
+              <span class="edu-meta">Score: <strong>77%</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SKILLS SECTION
+       ========================================= -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+      <h2 class="section-title reveal">My <span class="accent">Skills</span></h2>
+
+      <!-- Technical Skills -->
+      <div class="skill-group reveal delay-1">
+        <h3 class="skill-group-title">
+          <i class="fas fa-code" aria-hidden="true"></i> Technical
+        </h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Web Development</span>
+          <span class="skill-tag">LLM</span>
+          <span class="skill-tag">Git &amp; GitHub</span>
+        </div>
+      </div>
+
+      <!-- Programming Skills -->
+      <div class="skill-group reveal delay-2">
+        <h3 class="skill-group-title">
+          <i class="fas fa-laptop-code" aria-hidden="true"></i> Programming
+        </h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">React.js</span>
+        </div>
+      </div>
+
+      <!-- AI / LLM Skills -->
+      <div class="skill-group reveal delay-3">
+        <h3 class="skill-group-title">
+          <i class="fas fa-brain" aria-hidden="true"></i> AI / LLM
+        </h3>
+        <div class="skill-tags">
+          <span class="skill-tag ai-tag">NLP</span>
+          <span class="skill-tag ai-tag">Sentiment Analysis</span>
+          <span class="skill-tag ai-tag">LangChain</span>
+          <span class="skill-tag ai-tag">RAG</span>
+          <span class="skill-tag ai-tag">CrewAI</span>
+          <span class="skill-tag ai-tag">LangGraph</span>
+          <span class="skill-tag ai-tag">Gemini</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       EXPERIENCE SECTION
+       ========================================= -->
+  <section id="experience" class="section experience-section">
+    <div class="container">
+      <h2 class="section-title reveal">Work <span class="accent">Experience</span></h2>
+
+      <div class="timeline">
+        <!-- Timeline vertical line -->
+        <div class="timeline-line" aria-hidden="true"></div>
+
+        <!-- Experience 1: CDW -->
+        <div class="timeline-item reveal delay-1">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">AI &amp; LLM Intern</h3>
+                <p class="timeline-company"><i class="fas fa-building" aria-hidden="true"></i> CDW</p>
+              </div>
+              <span class="timeline-date">Feb 2026</span>
+            </div>
+            <ul class="timeline-points">
+              <li>Worked with Python, NLP, and sentiment analysis pipelines for real-world data extraction.</li>
+              <li>Built and fine-tuned LLM pipelines using <strong>LangChain</strong> and <strong>RAG</strong> architectures.</li>
+              <li>Designed autonomous AI agents using <strong>CrewAI</strong> and <strong>LangGraph</strong> frameworks.</li>
+              <li>Explored agentic RAG systems for advanced knowledge retrieval and reasoning.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag">Python</span>
+              <span class="tag">NLP</span>
+              <span class="tag">LangChain</span>
+              <span class="tag">RAG</span>
+              <span class="tag">CrewAI</span>
+              <span class="tag">LangGraph</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience 2: Futogen -->
+        <div class="timeline-item reveal delay-2">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="timeline-role">UI/UX Design Intern</h3>
+                <p class="timeline-company"><i class="fas fa-building" aria-hidden="true"></i> Futogen</p>
+              </div>
+              <span class="timeline-date">Jun 2025</span>
+            </div>
+            <ul class="timeline-points">
+              <li>Designed wireframes, prototypes, and complete user flows for product features.</li>
+              <li>Collaborated closely with development teams to translate designs into production interfaces.</li>
+              <li>Conducted user research and iterated on designs based on feedback.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag">UI/UX</span>
+              <span class="tag">Wireframing</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">User Flows</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.timeline -->
+    </div>
+  </section>
+
+  <!-- =========================================
+       PROJECTS SECTION
+       ========================================= -->
+  <section id="projects" class="section projects-section">
+    <div class="container">
+      <h2 class="section-title reveal">Featured <span class="accent">Projects</span></h2>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card reveal delay-1" tabindex="0" aria-label="Smart Accident Alert System project">
+          <div class="project-card-top">
+            <div class="project-icon"><i class="fas fa-car-crash" aria-hidden="true"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/sanjayaswin" target="_blank" rel="noopener noreferrer"
+                 aria-label="View Smart Accident Alert System on GitHub" class="project-link">
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Smart Accident Alert System</h3>
+          <p class="project-desc">
+            IoT-powered system using GPS &amp; GSM modules to automatically detect vehicle accidents
+            and instantly send the exact location coordinates to pre-configured emergency contacts —
+            reducing response times when every second counts.
+          </p>
+          <div class="project-tags">
+            <span class="tag">GPS</span>
+            <span class="tag">GSM</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Embedded C</span>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card reveal delay-2" tabindex="0" aria-label="Smart City Complaint Monitoring System project">
+          <div class="project-card-top">
+            <div class="project-icon"><i class="fas fa-city" aria-hidden="true"></i></div>
+            <div class="project-links">
+              <a href="https://github.com/sanjayaswin" target="_blank" rel="noopener noreferrer"
+                 aria-label="View Smart City Complaint Monitoring System on GitHub" class="project-link">
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Web-Based Smart City Complaint Monitoring System</h3>
+          <p class="project-desc">
+            A full-stack civic platform empowering citizens to report urban issues (potholes, garbage,
+            broken streetlights) with real-time status tracking and automated escalation workflows
+            to ensure timely resolution.
+          </p>
+          <div class="project-tags">
+            <span class="tag">React.js</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">REST API</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       CERTIFICATIONS & ACHIEVEMENTS SECTION
+       ========================================= -->
+  <section id="certifications" class="section certs-section">
+    <div class="container">
+      <h2 class="section-title reveal">Certs &amp; <span class="accent">Achievements</span></h2>
+
+      <div class="certs-achievements-grid">
+        <!-- Certifications Column -->
+        <div class="certs-column reveal delay-1">
+          <h3 class="subsection-title"><i class="fas fa-certificate" aria-hidden="true"></i> Certifications</h3>
+          <div class="badge-grid">
+
+            <div class="badge-card">
+              <div class="badge-icon"><i class="fab fa-java" aria-hidden="true"></i></div>
+              <div class="badge-info">
+                <h4>Java Programming</h4>
+                <p>Yellomatics</p>
+              </div>
+            </div>
+
+            <div class="badge-card">
+              <div class="badge-icon"><i class="fas fa-leaf" aria-hidden="true"></i></div>
+              <div class="badge-info">
+                <h4>MongoDB Basics</h4>
+                <p>MongoDB University</p>
+              </div>
+            </div>
+
+            <div class="badge-card">
+              <div class="badge-icon"><i class="fab fa-react" aria-hidden="true"></i></div>
+              <div class="badge-info">
+                <h4>MERN Stack Development</h4>
+                <p>Error Makes Clever (ISO)</p>
+              </div>
+            </div>
+
+            <div class="badge-card">
+              <div class="badge-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+              <div class="badge-info">
+                <h4>Cyber Security</h4>
+                <p>Xplore Intellects</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Achievements Column -->
+        <div class="achievements-column reveal delay-2">
+          <h3 class="subsection-title"><i class="fas fa-trophy" aria-hidden="true"></i> Achievements</h3>
+          <div class="achievement-list">
+
+            <div class="achievement-card">
+              <div class="achievement-medal">🥇</div>
+              <div class="achievement-info">
+                <h4>National-Level Finalist</h4>
+                <p>AISE Hack 2026</p>
+              </div>
+            </div>
+
+            <div class="achievement-card">
+              <div class="achievement-medal">🏆</div>
+              <div class="achievement-info">
+                <h4>National-Level Finalist</h4>
+                <p>GUVI HCL Hackathon 2025</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       CONNECT SECTION
+       ========================================= -->
+  <section id="connect" class="section connect-section">
+    <div class="container">
+      <h2 class="section-title reveal">Let's <span class="accent">Connect</span></h2>
+      <p class="connect-sub reveal delay-1">
+        Have a project idea, a job opportunity, or just want to say hi?<br/>
+        My inbox is always open.
+      </p>
+
+      <div class="connect-email-block reveal delay-2">
+        <i class="fas fa-envelope connect-email-icon" aria-hidden="true"></i>
+        <p class="connect-email-address" id="email-display">sanjay.m.stack@gmail.com</p>
+        <div class="connect-btns">
+          <a href="mailto:sanjay.m.stack@gmail.com" class="btn btn-primary" id="send-email-btn" aria-label="Send email to Sanjay M">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Email
+          </a>
+          <button class="btn btn-secondary" id="copy-email-btn" aria-label="Copy email address">
+            <i class="fas fa-copy" aria-hidden="true"></i> <span id="copy-btn-text">Copy Email</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Social links repeated at bottom -->
+      <div class="connect-socials reveal delay-3">
+        <a href="https://github.com/sanjayaswin" target="_blank" rel="noopener noreferrer"
+           class="social-icon-lg" aria-label="GitHub">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/sanjay-marx" target="_blank" rel="noopener noreferrer"
+           class="social-icon-lg" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
+  <footer class="footer">
+    <p>Designed &amp; Built by <span class="accent">Sanjay M</span> &nbsp;·&nbsp; 2026</p>
+    <p class="footer-sub">Computer Science Engineering · Full-Stack &amp; AI/LLM</p>
+  </footer>
+
+  <!-- Back-to-top button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- Main JavaScript -->
+  <script src="script.js"></script>
+</body>
 </html>
-<script>
-  var popup =document.querySelector(".popup")
-  var img=document.querySelector(".img")
-  var x=document.querySelector(".x")
-  img.addEventListener("click",function(){
-    popup.style.display="inline-block"
-    img.style.transform="rotate(90deg)"
-    img.style.transition="1s"
-  })
-  x.addEventListener("click",function(){
-    popup.style.display="none"
-    img.style.transform="rotate(0deg)"
-    img.style.transition="1s"
-  })
-</script>
